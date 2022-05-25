@@ -7,6 +7,7 @@ function App() {
 
   const [pacientes, setPacientes] = useState([])
   const [paciente, setPaciente] =  useState({})
+  const options = ['Hombre','Mujer']
 
   useEffect(()=>{
     const cargarLocalStorage = ()=>{
@@ -45,6 +46,11 @@ function App() {
           setPaciente  = {setPaciente} 
           eliminarPaciente = {eliminarPaciente}
          />
+         {/* 
+         <Droplist
+            options={options}
+         />
+         */}
       </div>
 
     </div>
