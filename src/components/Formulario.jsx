@@ -114,7 +114,7 @@ export const Formulario = ({setPacientes, pacientes, paciente,setPaciente, calcu
                     </div>
                     <div>
                         <span className='flex justify-center'>
-                        <h2 className=''>Ingrese su factor de actividad</h2>
+                        <h2 className=''>Calcular con factor de actividad</h2>
                         </span>
                         <div className='p-5 bg-[#FFB959] shadow-md rounded-xl mb-5 sm:mb-auto'>
 
@@ -159,8 +159,8 @@ export const Formulario = ({setPacientes, pacientes, paciente,setPaciente, calcu
                 <input type="date" name="date" id="date" className='px-2 block w-full rounded-md mb-10 text-gray-800' value={fecha} onChange={(e) => setFecha (e.target.value)} /> */}
                
                 <span>
-                    <input type="submit" id='btn1' className= "bg-[#FCAE66] text-white rounded-md text-xl font-bold w-full hover:bg-[#f59740] border-2 border-black hover:cursor-pointer p-3 mt-4 mb-5  "
-                    value = {paciente.id ? 'Editar paciente': 'CALCULAR'}
+                    <input type="submit" id='btn1' className= "  "
+                    value = {paciente.id ? 'Editar paciente': ''}
                     onClick ={()=>setResultados(calculoOMS)}
                     />
                 </span>
