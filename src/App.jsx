@@ -41,7 +41,7 @@ function App() {
     let calc = 0
     let actv = 0
    if(genero == "masculino"){
-      calc = (11.3 * peso) + (16 * estatura) + 901
+      calc = (11.3 * peso) + (16 * (estatura/100)) + 901
      
       console.log(calc)
       if(edad >= 18){
@@ -53,7 +53,7 @@ function App() {
       }
     }
    else if(genero == "femenino"){
-      calc = (8.7 * peso) - (25 * estatura) + 865
+      calc = (8.7 * peso) - (25 * (estatura/100)) + 865
       console.log(calc)
 
       if(edad >= 18){
