@@ -4,7 +4,7 @@ export const Pacientes = ({paciente, setPaciente, eliminarPaciente, resultados})
 
 const handleEliminar = () => {
   // console.log('eliminando', paciente.id);
-  const respuesta = confirm('¿Al chile estás seguro?')
+  const respuesta = confirm('¿Estás seguro?')
   if(respuesta){
     eliminarPaciente(paciente.id)
   }

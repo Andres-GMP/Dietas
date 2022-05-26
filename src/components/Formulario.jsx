@@ -2,8 +2,15 @@ import React from 'react'
 import {useState, useEffect} from 'react';
 import Dropdown from './Droplist';
 
+import activo from '../img/activo.png'
+import sedentario from '../img/sedentario.png'
+import ligero from '../img/ligero.png'
+import moderado from '../img/moderado.png'
+import vigoroso from '../img/vigoroso.png'
+
 
 export const Formulario = ({setPacientes, pacientes, paciente,setPaciente, calculoOMS}) => {
+    const [nombre, setNombre] = useState('');
     const [peso, setPeso] = useState('');
     const [estatura, setEstatura] = useState('');
     const [edad, setEdad] = useState('');
@@ -11,8 +18,7 @@ export const Formulario = ({setPacientes, pacientes, paciente,setPaciente, calcu
     const [factor, setFactor] = useState('');
     const [error, setError] = useState(false)
 
-    // console.log(paciente);
-    //Primer parametro, una función, segundo parametro el arreglo
+    
     useEffect(()=>{
         // console.log(paciente);
         if(Object.keys(paciente).length > 0){
@@ -51,7 +57,7 @@ export const Formulario = ({setPacientes, pacientes, paciente,setPaciente, calcu
         setError(false);
         
         const objetoPaciente = {
-            peso,estatura,edad,genero,factor
+            nombre, peso,estatura,edad,genero,factor
             // id: genKey()
         }
 
@@ -67,9 +73,8 @@ export const Formulario = ({setPacientes, pacientes, paciente,setPaciente, calcu
             calculoOMS(peso,estatura,edad,factor)
         }
         
+        const facActividad = [1.2,1.3,1.5,1.7,1.9];
         
-        
-
         // setPacientes([...pacientes, objetoPaciente])
         limpiar()
     }
@@ -82,68 +87,89 @@ export const Formulario = ({setPacientes, pacientes, paciente,setPaciente, calcu
             <form className='container mx-2 font-semibold' onSubmit={validarFormulario}>
             <p className='text-center text-xl mt-5 text-gray-800'>Ingrese los <span className=' text-blue-400 font-bold'> DATOS </span></p>
 
-    <div className='grid sm:grid-cols-2 gap-4'>
+            <div className='grid sm:grid-cols-2 gap-4'>
 
-            <div className=''>
-                <div>
-                    <label className='text-black' htmlFor="nombrePaciente">Peso en kg </label>
-                    <input type="text" id= 'peso' className=' block w-full rounded-md bg-[#FFCC81] text-black p-2 mb-5' placeholder='Peso' value={peso} onChange={(e) => setPeso(e.target.value)} />
-                    {/* <input type="text" id= 'nombre' className=' block w-full rounded-md ' placeholder=' Nombre' value={nombre} onChange={(e) => console.log(e.target.value)} /> */}
-                </div>
-                <div>
-                    <label className='text-black' htmlFor="nombrePaciente">Estatura en cm </label>
-                    <input type="text" id= 'estatura' className=' block w-full rounded-md bg-[#FFCC81] text-black p-2 mb-5' placeholder='Estatura' value={estatura} onChange={(e) => setEstatura(e.target.value)} />
-                    {/* <input type="text" id= 'nombre' className=' block w-full rounded-md ' placeholder=' Nombre' value={nombre} onChange={(e) => console.log(e.target.value)} /> */}
-                </div>
-                <div>
-                    <label className='text-black' htmlFor="nombrePaciente">Edad</label>
-                    <input type="text" id= 'edad' className=' block w-full rounded-md bg-[#FFCC81] text-black p-2 mb-5' placeholder='Edad' value={edad} onChange={(e) => setEdad(e.target.value)} />
-                    {/* <input type="text" id= 'nombre' className=' block w-full rounded-md ' placeholder=' Nombre' value={nombre} onChange={(e) => console.log(e.target.value)} /> */}
-                </div>
-                <div>
-                    <label className='text-black' htmlFor="nombrePaciente">Genero</label>
-                    <input type="text" id= 'genero' className=' block w-full rounded-md bg-[#FFCC81] text-black p-2 mb-5' placeholder='Genero' value={genero} onChange={(e) => setGenero(e.target.value)} />
-                    {/* <input type="text" id= 'nombre' className=' block w-full rounded-md ' placeholder=' Nombre' value={nombre} onChange={(e) => console.log(e.target.value)} /> */}
-                </div>
-                <div>
-                    <label className='text-black' htmlFor="nombrePaciente">Factor de actividad </label>
-                    <input type="text" id= 'factor' className=' block w-full rounded-md bg-[#FFCC81] text-black p-2 mb-5' placeholder='Factor de actividad' value={factor} onChange={(e) => setFactor(e.target.value)} />
-                    {/* <input type="text" id= 'nombre' className=' block w-full rounded-md ' placeholder=' Nombre' value={nombre} onChange={(e) => console.log(e.target.value)} /> */}
-                </div>
+                    <div className='flex justify-between flex-col '>
+
+                            <label className='text-black ' htmlFor="nombrePaciente">Nombre del paciente </label>
+                            <input type="text" id= 'factor' className=' my-2 block w-full rounded-md bg-[#FFCC81] text-black p-2 ' placeholder='Ingrese su nombre' value={nombre} onChange={(e) => setFactor(e.target.value)} />
+
+                            <label className='text-black ' htmlFor="">Peso en kg </label>
+                            <input type="text" id= 'peso' className='placeholder-gray-800 my-2 block w-full rounded-md bg-[#FFCC81] text-black p-2 mb-5' placeholder='Peso' value={peso} onChange={(e) => setPeso(e.target.value)} />
+                            {/* <input type="text" id= 'nombre' className=' block w-full rounded-md ' placeholder=' Nombre' value={nombre} onChange={(e) => console.log(e.target.value)} /> */}
+                        
+                            <label className='text-black' htmlFor="nombrePaciente">Estatura en cm </label>
+                            <input type="text" id= 'estatura' className=' my-2 block w-full rounded-md bg-[#FFCC81] text-black p-2 mb-5' placeholder='Estatura' value={estatura} onChange={(e) => setEstatura(e.target.value)} />
+                            {/* <input type="text" id= 'nombre' className=' block w-full rounded-md ' placeholder=' Nombre' value={nombre} onChange={(e) => console.log(e.target.value)} /> */}
+                        
+                            <label className='text-black' htmlFor="nombrePaciente">Edad</label>
+                            <input type="text" id= 'edad' className=' my-2 block w-full rounded-md bg-[#FFCC81] p-2 mb-5 ' placeholder='Edad' value={edad} onChange={(e) => setEdad(e.target.value)} />
+                            {/* <input type="text" id= 'nombre' className=' block w-full rounded-md ' placeholder=' Nombre' value={nombre} onChange={(e) => console.log(e.target.value)} /> */}
+                        
+                            <label className='text-black' htmlFor="nombrePaciente">Genero</label>
+                            <input type="text" id= 'genero' className='my-2 block w-full rounded-md bg-[#FFCC81] text-black p-2 mb-5' placeholder='Genero' value={genero} onChange={(e) => setGenero(e.target.value)} />
+                            {/* <input type="text" id= 'nombre' className=' block w-full rounded-md ' placeholder=' Nombre' value={nombre} onChange={(e) => console.log(e.target.value)} /> */}
+                        
+                        
+                            {/* <input type="text" id= 'nombre' className=' block w-full rounded-md ' placeholder=' Nombre' value={nombre} onChange={(e) => console.log(e.target.value)} /> */}
+                        
+                    </div>
+                    <div>
+                        <span className='flex justify-center'>
+                        <h2 className=''>Ingrese su factor de actividad</h2>
+                        </span>
+                        <form className='p-5 bg-[#FFB959] shadow-md rounded-xl mb-5 sm:mb-auto'>
+
+                            <button className='flex bg-white text-black rounded-md text-md font-bold w-full border-2 hover:cursor-pointer pl-7 py-3 mt-1 mb-2 '>
+                                <img src={sedentario} alt="" className='w-10 h-10' /> <p className='my-auto'>Sedentario</p>
+                            </button>
+                            
+                            <button className='flex bg-white text-black rounded-md text-md font-bold w-full border-2 hover:cursor-pointer pl-7 py-3 mt-1 mb-2'>
+                                <img src={ligero} alt="" className='w-10 h-10' /> <p className='my-auto'>Ligero</p>
+                            </button>
+                            
+                            <button className='flex bg-white text-black rounded-md text-md font-bold w-full border-2  hover:cursor-pointer pl-7 py-3 mt-1 mb-2'>
+                                <img src={moderado} alt="" className='w-10 h-10' /> <p className='my-auto'>Moderado</p>
+                            </button>
+                            
+                            <button className='flex bg-white text-black rounded-md text-md font-bold w-full border-2 hover:cursor-pointer pl-7 py-3 mt-1 mb-2'>
+                                <img src={activo} alt="" className='w-10 h-10' /> <p className='my-auto'>Activo</p>
+                            </button>
+                            
+                            <button className='flex bg-white text-black rounded-md text-md font-bold w-full border-2 hover:cursor-pointer pl-7 py-3 mt-1 mb-2'>
+                                <img src={vigoroso} alt="" className='w-10 h-10' /> <p className='my-auto'>Vigoroso</p>
+                            </button>
+                            <span className='p-2 flex justify-center rounded-md bg-[#FF990E]'>
+                                <label htmlFor="" onChange={(e) => setFactor(e.target.value)} 
+                                value= {factor}>???</label>
+                            </span>
+                        </form>
+                    </div>
+
             </div>
-
-            <div className='p-5 bg-[#FFB959] shadow-md mt-6 rounded-xl mb-5 sm:mb-auto'>
-                <input type="submit" id='sedentario' className= "bg-white text-black rounded-md text-md font-bold w-full border-2 border-black hover:cursor-pointer p-3 mt-1 mb-2" value="Sedentario"/>
-                <input type="submit" id='ligero' className= "bg-white text-black rounded-md text-md font-bold w-full border-2 border-black hover:cursor-pointer p-3 mt-1 mb-2" value="Ligero"/>
-                <input type="submit" id='moderado' className= "bg-white text-black rounded-md text-md font-bold w-full border-2 border-black hover:cursor-pointer p-3 mt-1 mb-2" value="Moderado"/>
-                <input type="submit" id='activo' className= "bg-white text-black rounded-md text-md font-bold w-full border-2 border-black hover:cursor-pointer p-3 mt-1 mb-2" value="Activo"/>
-                <input type="submit" id='vigoroso' className= "bg-white text-black rounded-md text-md font-bold w-full border-2 border-black hover:cursor-pointer p-3 mt-1 mb-2" value="Vigoroso"/> 
-            </div>
-
-    </div>
                 {/*
-                <div>
-                    <label htmlFor="email" >Estatura en cm </label>
-                    <input type="email" id= 'email' className='block w-full rounded-md text-gray-800 px-2' placeholder='Ingrese correo' value={correo} onChange={(e) => setCorreo (e.target.value)}/>
-                </div>*/}
- {/* <input type="text" id='sintomas' className='block w-full rounded-md' /> */}
-               {/* <div>
-                    <label htmlFor="sintomas">Edad </label>
-                    
-                    <textarea name="" id="" cols="30" rows="5" className='block w-full rounded-md p-1 mt-2 text-gray-800' placeholder='Ingrese una descripción de sus sintomas' value={sintomas} onChange={(e) => setSintomas (e.target.value)}></textarea>
+                    <div>
+                        <label htmlFor="email" >Estatura en cm </label>
+                        <input type="email" id= 'email' className='block w-full rounded-md text-gray-800 px-2' placeholder='Ingrese correo' value={correo} onChange={(e) => setCorreo (e.target.value)}/>
                     </div>*/}
+                    {/* <input type="text" id='sintomas' className='block w-full rounded-md' /> */}
+                {/* <div>
+                        <label htmlFor="sintomas">Edad </label>
+                        
+                        <textarea name="" id="" cols="30" rows="5" className='block w-full rounded-md p-1 mt-2 text-gray-800' placeholder='Ingrese una descripción de sus sintomas' value={sintomas} onChange={(e) => setSintomas (e.target.value)}></textarea>
+                        </div>*/}
+                    
+                    <div  className=''>
+                        {/*
+                        <label htmlFor="date">Genero </label>
+                    <input type="date" name="date" id="date" className='px-2 block w-full rounded-md mb-10 text-gray-800' value={fecha} onChange={(e) => setFecha (e.target.value)} /> */}
                 
-                <div  className=''>
-                     {/*
-                    <label htmlFor="date">Genero </label>
-                <input type="date" name="date" id="date" className='px-2 block w-full rounded-md mb-10 text-gray-800' value={fecha} onChange={(e) => setFecha (e.target.value)} /> */}
-               
-                <span>
-                    <input type="submit" id='btn1' className= "bg-[#FCAE66] text-white rounded-md text-xl font-bold w-full hover:bg-[#f59740] border-2 border-black hover:cursor-pointer p-3 mt-4 mb-5  "
-                    value = {paciente.id ? 'Editar paciente': 'CALCULAR'}
-                    />
-                </span>
-                </div>
+                    <span>
+                        <input type="submit" id='btn1' className= "bg-[#FCAE66] text-white rounded-md text-xl font-bold w-full hover:bg-[#f59740] border-2 border-black hover:cursor-pointer p-3 mt-4 mb-5  "
+                        value = {paciente.id ? 'Editar paciente': 'CALCULAR'}
+                        />
+                    </span>
+                    </div>
                
 
 
