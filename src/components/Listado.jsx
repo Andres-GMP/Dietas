@@ -10,6 +10,7 @@ export const Listado = ({pacientes, setPaciente, eliminarPaciente, resultados}) 
             <div>
                 <h2 className='text-3xl text-center font-bold text-black '>LISTADO DIETÉTICO</h2>
                 <p className='text-center text-xl mt-5 text-gray-800'>Resultados de los  <span className=' text-blue-400 font-bold'> CALCULOS </span></p>
+                <Pacientes resultados = {resultados}></Pacientes>
                 {
                     
                     pacientes.map(paciente =>(

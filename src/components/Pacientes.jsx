@@ -17,8 +17,9 @@ const handleEliminar = () => {
         <p>Hola</p>
         <p>Esto es una Prueba</p>
         <p>Para crear el disenio</p>
-        {/*<p className='uppercase text-gray-800 font-bold'>Calculo: <span className='font-normal normal-case'>{resultados}</span></p>*/}
-
+        <p className='uppercase text-gray-800 font-bold'>Gasto basal: <span className='font-normal normal-case'>{resultados.basal}</span></p>
+        <p className='uppercase text-gray-800 font-bold'>Factor de actividad: <span className='font-normal normal-case'>{resultados.fa}</span></p>
+        <p className='uppercase text-gray-800 font-bold'>Total: <span className='font-normal normal-case'>{resultados.total}</span></p>
                 {/*<div className='flex justify-between gap-2 mt-4'>
                   <input type="button" value = {"EDITAR"} className = 'font-semibold bg-blue-700 w-full rounded-md hover:cursor-pointe hover:bg-blue-800 hover:text-blue-100' onClick = {()=>setPaciente(paciente)}/>
                   <input type="button" value = {"ELIMINAR"} className = 'font-semibold bg-red-500  w-full  p-1 rounded-md hover:cursor-pointer hover:bg-red-600 hover:text-red-100' 

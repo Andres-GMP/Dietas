@@ -2,15 +2,14 @@ import React from 'react'
 import {useState, useEffect} from 'react';
 import Dropdown from './Droplist';
 
-import activo from '../img/activo.png'
 import sedentario from '../img/sedentario.png'
-import ligero from '../img/ligero.png'
-import moderado from '../img/moderado.png'
-import vigoroso from '../img/vigoroso.png'
+import ligero from '../img/sedentario.png'
+import moderado from '../img/sedentario.png'
+import activo from '../img/sedentario.png'
+import vigoroso from '../img/sedentario.png'
 
 
-export const Formulario = ({setPacientes, pacientes, paciente,setPaciente, calculoOMS}) => {
-    const [nombre, setNombre] = useState('');
+export const Formulario = ({setPacientes, pacientes, paciente,setPaciente, calculoOMS, setResultados}) => {
     const [peso, setPeso] = useState('');
     const [estatura, setEstatura] = useState('');
     const [edad, setEdad] = useState('');
@@ -18,7 +17,8 @@ export const Formulario = ({setPacientes, pacientes, paciente,setPaciente, calcu
     const [factor, setFactor] = useState('');
     const [error, setError] = useState(false)
 
-    
+    // console.log(paciente);
+    //Primer parametro, una función, segundo parametro el arreglo
     useEffect(()=>{
         // console.log(paciente);
         if(Object.keys(paciente).length > 0){
@@ -57,7 +57,7 @@ export const Formulario = ({setPacientes, pacientes, paciente,setPaciente, calcu
         setError(false);
         
         const objetoPaciente = {
-            nombre, peso,estatura,edad,genero,factor
+            peso,estatura,edad,genero,factor
             // id: genKey()
         }
 
@@ -70,10 +70,12 @@ export const Formulario = ({setPacientes, pacientes, paciente,setPaciente, calcu
         }else{
             objetoPaciente.id = genKey();
             setPacientes([...pacientes,objetoPaciente]);
-            calculoOMS(peso,estatura,edad,factor)
+            calculoOMS(peso,estatura,edad,genero,factor)
         }
         
         
+        
+
         // setPacientes([...pacientes, objetoPaciente])
         limpiar()
     }
@@ -89,9 +91,6 @@ export const Formulario = ({setPacientes, pacientes, paciente,setPaciente, calcu
              <div className='grid sm:grid-cols-2 gap-4'>
 
                     <div className='flex justify-between flex-col '>
-
-                            <label className='text-black ' htmlFor="nombrePaciente">Nombre del paciente </label>
-                            <input type="text" id= 'factor' className=' my-2 block w-full rounded-md bg-[#FFCC81] text-black p-2 ' placeholder='Ingrese su nombre' value={nombre} onChange={(e) => setFactor(e.target.value)} />
 
                             <label className='text-black ' htmlFor="">Peso en kg </label>
                             <input type="text" id= 'peso' className='placeholder-gray-800 my-2 block w-full rounded-md bg-[#FFCC81] text-black p-2 mb-5' placeholder='Peso' value={peso} onChange={(e) => setPeso(e.target.value)} />
@@ -153,29 +152,19 @@ export const Formulario = ({setPacientes, pacientes, paciente,setPaciente, calcu
                     </div>
 
                     </div>
-                    {/*
-                    <div>
-                        <label htmlFor="email" >Estatura en cm </label>
-                        <input type="email" id= 'email' className='block w-full rounded-md text-gray-800 px-2' placeholder='Ingrese correo' value={correo} onChange={(e) => setCorreo (e.target.value)}/>
-                    </div>*/}
-                    {/* <input type="text" id='sintomas' className='block w-full rounded-md' /> */}
-                 {/* <div>
-                        <label htmlFor="sintomas">Edad </label>
-                        
-                        <textarea name="" id="" cols="30" rows="5" className='block w-full rounded-md p-1 mt-2 text-gray-800' placeholder='Ingrese una descripción de sus sintomas' value={sintomas} onChange={(e) => setSintomas (e.target.value)}></textarea>
-                        </div>*/}
-                    
-                    <div  className=''>
-                        {/*
-                        <label htmlFor="date">Genero </label>
-                    <input type="date" name="date" id="date" className='px-2 block w-full rounded-md mb-10 text-gray-800' value={fecha} onChange={(e) => setFecha (e.target.value)} /> */}
                 
-                    <span>
-                        <input type="submit" id='btn1' className= "bg-[#FCAE66] text-white rounded-md text-xl font-bold w-full hover:bg-[#f59740] border-2 border-black hover:cursor-pointer p-3 mt-4 mb-5  "
-                        value = {paciente.id ? 'Editar paciente': 'CALCULAR'}
-                        />
-                    </span>
-                    </div>
+                <div  className=''>
+                     {/*
+                    <label htmlFor="date">Genero </label>
+                <input type="date" name="date" id="date" className='px-2 block w-full rounded-md mb-10 text-gray-800' value={fecha} onChange={(e) => setFecha (e.target.value)} /> */}
+               
+                <span>
+                    <input type="submit" id='btn1' className= "bg-[#FCAE66] text-white rounded-md text-xl font-bold w-full hover:bg-[#f59740] border-2 border-black hover:cursor-pointer p-3 mt-4 mb-5  "
+                    value = {paciente.id ? 'Editar paciente': 'CALCULAR'}
+                    onClick ={()=>setResultados(calculoOMS)}
+                    />
+                </span>
+                </div>
                
 
 

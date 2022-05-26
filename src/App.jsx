@@ -8,7 +8,7 @@ function App() {
   const [pacientes, setPacientes] = useState([])
   const [paciente, setPaciente] =  useState({})
   const options = ['Hombre','Mujer']
-  const [resultados, setResultados] = useState({av:0})
+  const [resultados, setResultados] = useState({})
 
   useEffect(()=>{
     const cargarLocalStorage = ()=>{
@@ -31,25 +31,48 @@ function App() {
     // console.log(pacientesActualizados);
     setPacientes(pacientesActualizados)
   }
-  const calculoOMS = (peso,edad,estatura,factor) =>{
+  const calculoOMS = (peso,estatura,edad,genero,factor) =>{
     //let calcular = peso + estatura
     peso = parseFloat(peso)
-    edad = parseFloat(edad)
     estatura = parseFloat(estatura)
+    edad = parseFloat(edad)
+    genero = genero
     factor = parseFloat(factor)
+    let calc = 0
+    let actv = 0
+   if(genero == "masculino"){
+      calc = (11.3 * peso) + (16 * estatura) + 901
+     
+      console.log(calc)
+      if(edad >= 18){
+        actv = calc * factor
+        console.log(actv)
+      }
+      else{
+        console.log("Debido a que no es mayor de edad, entonces no podemos calcular el factor de actividad.")
+      }
+    }
+   else if(genero == "femenino"){
+      calc = (8.7 * peso) - (25 * estatura) + 865
+      console.log(calc)
 
-   // if(genero == "masculino"){
-      let av = (11.3 * peso) + (16 * estatura) + 901
-      resultados === av
-      console.log(av)
-      
-    //}
-   /* else if(genero == "femenino"){
-      let av = (8.7 * peso) - (25 * estatura) + 865
+      if(edad >= 18){
+        
+        actv = calc * factor
+        console.log(actv)
+      }
+      else{
+        console.log("Debido a que no es mayor de edad, entonces no podemos calcular el factor de actividad.")
+      }
     }
     else{
-      print("Elige un genero valido (femenino o masculino)")
-    }*/
+      console.log("Elige un genero valido")
+    }
+    setResultados({
+      basal:calc,
+      fa:actv,
+      total:actv,
+    })
   }
 
   return (
@@ -62,12 +85,14 @@ function App() {
           paciente = {paciente}
           setPaciente = {setPaciente}
           calculoOMS = {calculoOMS}
+          setResultados ={setResultados}
           />
         <Listado 
           pacientes = {pacientes}
           resultados = {resultados}
           setPaciente  = {setPaciente} 
           eliminarPaciente = {eliminarPaciente}
+          
          />
          {/* 
          <Droplist
