@@ -2,7 +2,7 @@ import React from 'react'
 import {Pacientes} from './Pacientes'
 
 
-export const Listado = ({pacientes, setPaciente, eliminarPaciente}) => {
+export const Listado = ({pacientes, setPaciente, eliminarPaciente, resultados}) => {
     
 
     return (
@@ -11,17 +11,17 @@ export const Listado = ({pacientes, setPaciente, eliminarPaciente}) => {
                 <h2 className='text-3xl text-center text-blue-400 font-bold'>Listado Pacientes</h2>
                 <p className='text-center text-xl mt-5 text-gray-400'>Administra tus <span className=' text-blue-100 font-bold'> Pacientes y Citas </span></p>
                 {
+                    
                     pacientes.map(paciente =>(
                         <Pacientes
                         key={paciente.id}
                         paciente = {paciente}
                         setPaciente = {setPaciente}
                         eliminarPaciente = {eliminarPaciente}
+                        resultados={resultados}
                         />
                     ))
                 }
-                
-                
             </div>
         </div>
     )

@@ -3,12 +3,12 @@ import {useState, useEffect} from 'react';
 import Dropdown from './Droplist';
 
 
-export const Formulario = ({setPacientes, pacientes, paciente,setPaciente}) => {
-    const [nombre, setNombre] = useState('');
-    const [correo, setCorreo] = useState('');
-    const [sintomas, setSintomas] = useState('');
-    const [fecha, setFecha] = useState('');
-
+export const Formulario = ({setPacientes, pacientes, paciente,setPaciente, calculoOMS}) => {
+    const [peso, setPeso] = useState('');
+    const [estatura, setEstatura] = useState('');
+    const [edad, setEdad] = useState('');
+    const [genero, setGenero] = useState('');
+    const [factor, setFactor] = useState('');
     const [error, setError] = useState(false)
 
     // console.log(paciente);
@@ -16,18 +16,21 @@ export const Formulario = ({setPacientes, pacientes, paciente,setPaciente}) => {
     useEffect(()=>{
         // console.log(paciente);
         if(Object.keys(paciente).length > 0){
-            setNombre(paciente.nombre)
-            setCorreo(paciente.correo)
-            setSintomas(paciente.sintomas)
-            setFecha(paciente.fecha)
+            setPeso(paciente.peso)
+            setEstatura(paciente.estatura)
+            setEdad(paciente.edad)
+            setGenero(paciente.genero)
+            setFactor(paciente.factor)
         }
     },[paciente])
 
     const limpiar = () =>{
-        setNombre('')
-        setCorreo('')
-        setSintomas('')
-        setFecha('')
+        setPeso('')
+        setEstatura('')
+        setEdad('')
+        setGenero('')
+        setFactor('')
+
     }
     
     const genKey = () =>{
@@ -40,7 +43,7 @@ export const Formulario = ({setPacientes, pacientes, paciente,setPaciente}) => {
         e.preventDefault();
         
         
-        if([nombre,correo, sintomas, fecha].includes('')){
+        if([peso,estatura,edad,genero,factor].includes('')){
             setError(true);
             return;        
         }
@@ -48,10 +51,7 @@ export const Formulario = ({setPacientes, pacientes, paciente,setPaciente}) => {
         setError(false);
         
         const objetoPaciente = {
-            nombre,
-            correo,
-            sintomas,
-            fecha, 
+            peso,estatura,edad,genero,factor
             // id: genKey()
         }
 
@@ -64,6 +64,7 @@ export const Formulario = ({setPacientes, pacientes, paciente,setPaciente}) => {
         }else{
             objetoPaciente.id = genKey();
             setPacientes([...pacientes,objetoPaciente]);
+            calculoOMS(peso,estatura,edad,factor)
         }
         
         
@@ -81,31 +82,40 @@ export const Formulario = ({setPacientes, pacientes, paciente,setPaciente}) => {
             <p className='text-center text-xl mt-5'>Ingrese los <span className=' text-blue-100 font-bold'> DATOS </span></p>
                 <div>
                     <label htmlFor="nombrePaciente">Peso en kg </label>
-                    <input type="text" id= 'nombre' className=' block w-full rounded-md text-gray-800 px-2' placeholder=' Nombre' value={nombre} onChange={(e) => setNombre(e.target.value)} />
+                    <input type="text" id= 'peso' className=' block w-full rounded-md text-gray-800 px-2' placeholder=' Nombre' value={peso} onChange={(e) => setPeso(e.target.value)} />
                     {/* <input type="text" id= 'nombre' className=' block w-full rounded-md ' placeholder=' Nombre' value={nombre} onChange={(e) => console.log(e.target.value)} /> */}
                 </div>
                 <div>
+                    <label htmlFor="nombrePaciente">Estatura en cm </label>
+                    <input type="text" id= 'estatura' className=' block w-full rounded-md text-gray-800 px-2' placeholder=' Nombre' value={estatura} onChange={(e) => setEstatura(e.target.value)} />
+                    {/* <input type="text" id= 'nombre' className=' block w-full rounded-md ' placeholder=' Nombre' value={nombre} onChange={(e) => console.log(e.target.value)} /> */}
+                </div>
+                <div>
+                    <label htmlFor="nombrePaciente">Edad</label>
+                    <input type="text" id= 'edad' className=' block w-full rounded-md text-gray-800 px-2' placeholder=' Nombre' value={edad} onChange={(e) => setEdad(e.target.value)} />
+                    {/* <input type="text" id= 'nombre' className=' block w-full rounded-md ' placeholder=' Nombre' value={nombre} onChange={(e) => console.log(e.target.value)} /> */}
+                </div>
+                <div>
+                    <label htmlFor="nombrePaciente">Genero</label>
+                    <input type="text" id= 'genero' className=' block w-full rounded-md text-gray-800 px-2' placeholder=' Nombre' value={genero} onChange={(e) => setGenero(e.target.value)} />
+                    {/* <input type="text" id= 'nombre' className=' block w-full rounded-md ' placeholder=' Nombre' value={nombre} onChange={(e) => console.log(e.target.value)} /> */}
+                </div>
+                <div>
+                    <label htmlFor="nombrePaciente">Factor de actividad </label>
+                    <input type="text" id= 'factor' className=' block w-full rounded-md text-gray-800 px-2' placeholder=' Nombre' value={factor} onChange={(e) => setFactor(e.target.value)} />
+                    {/* <input type="text" id= 'nombre' className=' block w-full rounded-md ' placeholder=' Nombre' value={nombre} onChange={(e) => console.log(e.target.value)} /> */}
+                </div>
+                {/*
+                <div>
                     <label htmlFor="email" >Estatura en cm </label>
                     <input type="email" id= 'email' className='block w-full rounded-md text-gray-800 px-2' placeholder='Ingrese correo' value={correo} onChange={(e) => setCorreo (e.target.value)}/>
-                </div>
+                </div>*/}
  {/* <input type="text" id='sintomas' className='block w-full rounded-md' /> */}
                {/* <div>
                     <label htmlFor="sintomas">Edad </label>
                     
                     <textarea name="" id="" cols="30" rows="5" className='block w-full rounded-md p-1 mt-2 text-gray-800' placeholder='Ingrese una descripción de sus sintomas' value={sintomas} onChange={(e) => setSintomas (e.target.value)}></textarea>
                     </div>*/}
-                <div>
-                    <label htmlFor="email" >Edad </label>
-                    <input type="email" id= 'email' className='block w-full rounded-md text-gray-800 px-2' placeholder='Ingrese correo' value={correo} onChange={(e) => setCorreo (e.target.value)}/>
-                </div>
-                <div>
-                    <label htmlFor="email" >Genero </label>
-                    <input type="email" id= 'email' className='block w-full rounded-md text-gray-800 px-2' placeholder='Ingrese correo' value={correo} onChange={(e) => setCorreo (e.target.value)}/>
-                </div>
-                <div>
-                    <label htmlFor="email" >Factor de actividad </label>
-                    <input type="email" id= 'email' className='block w-full rounded-md text-gray-800 px-2' placeholder='Ingrese correo' value={correo} onChange={(e) => setCorreo (e.target.value)}/>
-                </div>
                 
                 <div  className=''>
                      {/*

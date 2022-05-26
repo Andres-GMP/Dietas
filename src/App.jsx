@@ -8,6 +8,7 @@ function App() {
   const [pacientes, setPacientes] = useState([])
   const [paciente, setPaciente] =  useState({})
   const options = ['Hombre','Mujer']
+  const [resultados, setResultados] = useState({av:0})
 
   useEffect(()=>{
     const cargarLocalStorage = ()=>{
@@ -30,6 +31,26 @@ function App() {
     // console.log(pacientesActualizados);
     setPacientes(pacientesActualizados)
   }
+  const calculoOMS = (peso,edad,estatura,factor) =>{
+    //let calcular = peso + estatura
+    peso = parseFloat(peso)
+    edad = parseFloat(edad)
+    estatura = parseFloat(estatura)
+    factor = parseFloat(factor)
+
+   // if(genero == "masculino"){
+      let av = (11.3 * peso) + (16 * estatura) + 901
+      resultados = av
+      console.log(av)
+      
+    //}
+   /* else if(genero == "femenino"){
+      let av = (8.7 * peso) - (25 * estatura) + 865
+    }
+    else{
+      print("Elige un genero valido (femenino o masculino)")
+    }*/
+  }
 
   return (
     <div className="text-slate-800">
@@ -40,9 +61,11 @@ function App() {
           pacientes = {pacientes}
           paciente = {paciente}
           setPaciente = {setPaciente}
+          calculoOMS = {calculoOMS}
           />
         <Listado 
           pacientes = {pacientes}
+          resultados = {resultados}
           setPaciente  = {setPaciente} 
           eliminarPaciente = {eliminarPaciente}
          />
