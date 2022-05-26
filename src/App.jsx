@@ -49,7 +49,7 @@ function App() {
         console.log(actv)
       }
       else{
-        console.log("Debido a que no es mayor de edad, entonces no podemos calcular el factor de actividad.")
+        actv = calc * 1
       }
     }
    else if(genero == "femenino"){
@@ -62,7 +62,7 @@ function App() {
         console.log(actv)
       }
       else{
-        console.log("Debido a que no es mayor de edad, entonces no podemos calcular el factor de actividad.")
+        console.log("Edad menor a 18")
       }
     }
     else{
