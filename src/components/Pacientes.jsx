@@ -14,9 +14,7 @@ const handleEliminar = () => {
     <div>
         <div className=' p-5 bg-white shadow-md mt-6 rounded-3xl border-2 border-black'>
         {/* Aqui comienza el Problema - OJO COMENTE ESTO PARA PODER MODIFICAR EL DISENIO*/}
-        <p>Hola</p>
-        <p>Esto es una Prueba</p>
-        <p>Para crear el disenio</p>
+        
         <p className='uppercase text-gray-800 font-bold'>Gasto basal: <span className='font-normal normal-case'>{resultados.basal}</span></p>
         <p className='uppercase text-gray-800 font-bold'>Factor de actividad: <span className='font-normal normal-case'>{resultados.fa}</span></p>
         <p className='uppercase text-gray-800 font-bold'>Total: <span className='font-normal normal-case'>{resultados.total}</span></p>
