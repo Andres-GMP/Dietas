@@ -104,7 +104,7 @@ export const Formulario = ({setPacientes, pacientes, paciente,setPaciente, calcu
                             <input type="text" id= 'edad' className=' my-2 block w-full rounded-md bg-[#FFCC81] p-2 mb-5 ' placeholder='Edad' value={edad} onChange={(e) => setEdad(e.target.value)} />
                             {/* <input type="text" id= 'nombre' className=' block w-full rounded-md ' placeholder=' Nombre' value={nombre} onChange={(e) => console.log(e.target.value)} /> */}
                         
-                            <label className='text-black' htmlFor="nombrePaciente">Genero</label>
+                            <label className='text-black' htmlFor="nombrePaciente">Genero (masculino o femenino)</label>
                             <input type="text" id= 'genero' className='my-2 block w-full rounded-md bg-[#FFCC81] text-black p-2 mb-5' placeholder='Genero' value={genero} onChange={(e) => setGenero(e.target.value)} />
                             {/* <input type="text" id= 'nombre' className=' block w-full rounded-md ' placeholder=' Nombre' value={nombre} onChange={(e) => console.log(e.target.value)} /> */}
                         
