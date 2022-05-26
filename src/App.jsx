@@ -40,7 +40,7 @@ function App() {
 
    // if(genero == "masculino"){
       let av = (11.3 * peso) + (16 * estatura) + 901
-      resultados = av
+      //resultados = av
       console.log(av)
       
     //}

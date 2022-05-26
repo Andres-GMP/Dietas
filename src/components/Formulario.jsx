@@ -75,34 +75,34 @@ export const Formulario = ({setPacientes, pacientes, paciente,setPaciente, calcu
     }
 
     return (
-        <div className='bg-gray-800 rounded-md p-4 w-auto mx-5 shadow-lg md:w-auto xl:w-auto xl:ml-5 mb-auto'>
-            <h1 className=' text-3xl text-center font-bold text-white '>CALCULAR EL PESO</h1>
+        <div className='bg-white rounded-3xl p-6 w-auto mx-5 shadow-lg md:w-auto xl:w-auto xl:ml-5 mb-auto pr-10 border-2 border-black'>
+            <h1 className=' text-3xl text-center font-bold text-black '>CALCULAR EL PESO</h1>
             {error && <p className=' grid text-red-600 font-semibold  justify-center my-2 '> Debes llenar todos los campos</p>}
             <form className='container mx-2 text-yellow-100 font-semibold' onSubmit={validarFormulario}>
-            <p className='text-center text-xl mt-5'>Ingrese los <span className=' text-blue-100 font-bold'> DATOS </span></p>
+            <p className='text-center text-xl mt-5 text-gray-800'>Ingrese los <span className=' text-blue-400 font-bold'> DATOS </span></p>
                 <div>
-                    <label htmlFor="nombrePaciente">Peso en kg </label>
-                    <input type="text" id= 'peso' className=' block w-full rounded-md text-gray-800 px-2' placeholder=' Nombre' value={peso} onChange={(e) => setPeso(e.target.value)} />
+                    <label className='text-black' htmlFor="nombrePaciente">Peso en kg </label>
+                    <input type="text" id= 'peso' className=' block w-full rounded-md bg-[#FFCC81] text-black p-2 mb-5' placeholder='Peso' value={peso} onChange={(e) => setPeso(e.target.value)} />
                     {/* <input type="text" id= 'nombre' className=' block w-full rounded-md ' placeholder=' Nombre' value={nombre} onChange={(e) => console.log(e.target.value)} /> */}
                 </div>
                 <div>
-                    <label htmlFor="nombrePaciente">Estatura en cm </label>
-                    <input type="text" id= 'estatura' className=' block w-full rounded-md text-gray-800 px-2' placeholder=' Nombre' value={estatura} onChange={(e) => setEstatura(e.target.value)} />
+                    <label className='text-black' htmlFor="nombrePaciente">Estatura en cm </label>
+                    <input type="text" id= 'estatura' className=' block w-full rounded-md bg-[#FFCC81] text-gray-800 p-2 mb-5' placeholder='Nombre' value={estatura} onChange={(e) => setEstatura(e.target.value)} />
                     {/* <input type="text" id= 'nombre' className=' block w-full rounded-md ' placeholder=' Nombre' value={nombre} onChange={(e) => console.log(e.target.value)} /> */}
                 </div>
                 <div>
-                    <label htmlFor="nombrePaciente">Edad</label>
-                    <input type="text" id= 'edad' className=' block w-full rounded-md text-gray-800 px-2' placeholder=' Nombre' value={edad} onChange={(e) => setEdad(e.target.value)} />
+                    <label className='text-black' htmlFor="nombrePaciente">Edad</label>
+                    <input type="text" id= 'edad' className=' block w-full rounded-md bg-[#FFCC81] text-gray-800 p-2 mb-5' placeholder='Nombre' value={edad} onChange={(e) => setEdad(e.target.value)} />
                     {/* <input type="text" id= 'nombre' className=' block w-full rounded-md ' placeholder=' Nombre' value={nombre} onChange={(e) => console.log(e.target.value)} /> */}
                 </div>
                 <div>
-                    <label htmlFor="nombrePaciente">Genero</label>
-                    <input type="text" id= 'genero' className=' block w-full rounded-md text-gray-800 px-2' placeholder=' Nombre' value={genero} onChange={(e) => setGenero(e.target.value)} />
+                    <label className='text-black' htmlFor="nombrePaciente">Genero</label>
+                    <input type="text" id= 'genero' className=' block w-full rounded-md bg-[#FFCC81] text-gray-800 p-2 mb-5' placeholder='Nombre' value={genero} onChange={(e) => setGenero(e.target.value)} />
                     {/* <input type="text" id= 'nombre' className=' block w-full rounded-md ' placeholder=' Nombre' value={nombre} onChange={(e) => console.log(e.target.value)} /> */}
                 </div>
                 <div>
-                    <label htmlFor="nombrePaciente">Factor de actividad </label>
-                    <input type="text" id= 'factor' className=' block w-full rounded-md text-gray-800 px-2' placeholder=' Nombre' value={factor} onChange={(e) => setFactor(e.target.value)} />
+                    <label className='text-black' htmlFor="nombrePaciente">Factor de actividad </label>
+                    <input type="text" id= 'factor' className=' block w-full rounded-md bg-[#FFCC81] text-gray-800 p-2 mb-5' placeholder='Nombre' value={factor} onChange={(e) => setFactor(e.target.value)} />
                     {/* <input type="text" id= 'nombre' className=' block w-full rounded-md ' placeholder=' Nombre' value={nombre} onChange={(e) => console.log(e.target.value)} /> */}
                 </div>
                 {/*
@@ -123,8 +123,8 @@ export const Formulario = ({setPacientes, pacientes, paciente,setPaciente, calcu
                 <input type="date" name="date" id="date" className='px-2 block w-full rounded-md mb-10 text-gray-800' value={fecha} onChange={(e) => setFecha (e.target.value)} /> */}
                
                 <span>
-                    <input type="submit" id='btn1' className= "bg-purple-800 rounded-md text-xl font-bold w-full hover:bg-purple-900 hover:cursor-pointer text-fuchsia-50 p-2 mt-4  "
-                    value = {paciente.id ? 'Editar paciente': 'Agregar'}
+                    <input type="submit" id='btn1' className= "bg-[#FCAE66] rounded-md text-xl font-bold w-full hover:bg-[white] hover:cursor-pointer text-white hover:text-[#FCAE66] p-3 mt-4 mb-5  "
+                    value = {paciente.id ? 'Editar paciente': 'CALCULAR'}
                     />
                 </span>
                 </div>
