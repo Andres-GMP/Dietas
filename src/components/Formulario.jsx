@@ -75,15 +75,16 @@ export const Formulario = ({setPacientes, pacientes, paciente,setPaciente, calcu
     }
 
     return (
-        <div className='bg-white rounded-3xl p-6 w-auto mx-5 shadow-lg md:w-auto xl:w-auto xl:ml-5 mb-auto pr-10 border-2 border-black '>
+        <div className='bg-white rounded-3xl p-6 w-auto mx-5 shadow-lg md:w-auto xl:w-auto xl:ml-5 mb-auto pr-10 border-2 border-black'>
             <h1 className=' text-3xl text-center font-bold text-black '>CALCULAR EL PESO</h1>
-            {error && <p className=' grid text-red-600 font-semibold  justify-center my-2 '> Debes llenar todos los campos</p>}
+            {error && <p className=' grid text-red-600 font-semibold  justify-center my-2'> DEBES LLENAR TODOS LOS CAMPOS</p>}
             
             <form className='container mx-2 font-semibold' onSubmit={validarFormulario}>
             <p className='text-center text-xl mt-5 text-gray-800'>Ingrese los <span className=' text-blue-400 font-bold'> DATOS </span></p>
 
+    <div className='grid sm:grid-cols-2 gap-4'>
 
-            <div className='w-2/3'>
+            <div className=''>
                 <div>
                     <label className='text-black' htmlFor="nombrePaciente">Peso en kg </label>
                     <input type="text" id= 'peso' className=' block w-full rounded-md bg-[#FFCC81] text-black p-2 mb-5' placeholder='Peso' value={peso} onChange={(e) => setPeso(e.target.value)} />
@@ -111,14 +112,15 @@ export const Formulario = ({setPacientes, pacientes, paciente,setPaciente, calcu
                 </div>
             </div>
 
-            <div className='w-1/3 p-5 bg-[#FFB959] shadow-md mt-6 rounded-xl'>
+            <div className='p-5 bg-[#FFB959] shadow-md mt-6 rounded-xl mb-5 sm:mb-auto'>
                 <input type="submit" id='sedentario' className= "bg-white text-black rounded-md text-md font-bold w-full border-2 border-black hover:cursor-pointer p-3 mt-1 mb-2" value="Sedentario"/>
                 <input type="submit" id='ligero' className= "bg-white text-black rounded-md text-md font-bold w-full border-2 border-black hover:cursor-pointer p-3 mt-1 mb-2" value="Ligero"/>
                 <input type="submit" id='moderado' className= "bg-white text-black rounded-md text-md font-bold w-full border-2 border-black hover:cursor-pointer p-3 mt-1 mb-2" value="Moderado"/>
                 <input type="submit" id='activo' className= "bg-white text-black rounded-md text-md font-bold w-full border-2 border-black hover:cursor-pointer p-3 mt-1 mb-2" value="Activo"/>
-                <input type="submit" id='vigoroso' className= "bg-white text-black rounded-md text-md font-bold w-full border-2 border-black hover:cursor-pointer p-3 mt-1 mb-2" value="Vigoroso"/>
-                
+                <input type="submit" id='vigoroso' className= "bg-white text-black rounded-md text-md font-bold w-full border-2 border-black hover:cursor-pointer p-3 mt-1 mb-2" value="Vigoroso"/> 
             </div>
+
+    </div>
                 {/*
                 <div>
                     <label htmlFor="email" >Estatura en cm </label>
