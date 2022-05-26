@@ -3,10 +3,10 @@ import {useState, useEffect} from 'react';
 import Dropdown from './Droplist';
 
 import sedentario from '../img/sedentario.png'
-import ligero from '../img/sedentario.png'
-import moderado from '../img/sedentario.png'
-import activo from '../img/sedentario.png'
-import vigoroso from '../img/sedentario.png'
+import ligero from '../img/ligero.png'
+import moderado from '../img/moderado.png'
+import activo from '../img/activo.png'
+import vigoroso from '../img/vigoroso.png'
 
 
 export const Formulario = ({setPacientes, pacientes, paciente,setPaciente, calculoOMS, setResultados}) => {
