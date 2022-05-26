@@ -3,7 +3,7 @@ import {useState, useEffect} from 'react';
 import Dropdown from './Droplist';
 
 
-export const Formulario = ({setPacientes, pacientes, paciente,setPaciente, calculoOMS}) => {
+export const Formulario = ({setPacientes, pacientes, paciente,setPaciente, calculoOMS, setResultados}) => {
     const [peso, setPeso] = useState('');
     const [estatura, setEstatura] = useState('');
     const [edad, setEdad] = useState('');
@@ -64,7 +64,7 @@ export const Formulario = ({setPacientes, pacientes, paciente,setPaciente, calcu
         }else{
             objetoPaciente.id = genKey();
             setPacientes([...pacientes,objetoPaciente]);
-            calculoOMS(peso,estatura,edad,factor)
+            calculoOMS(peso,estatura,edad,genero,factor)
         }
         
         
@@ -141,6 +141,7 @@ export const Formulario = ({setPacientes, pacientes, paciente,setPaciente, calcu
                 <span>
                     <input type="submit" id='btn1' className= "bg-[#FCAE66] text-white rounded-md text-xl font-bold w-full hover:bg-[#f59740] border-2 border-black hover:cursor-pointer p-3 mt-4 mb-5  "
                     value = {paciente.id ? 'Editar paciente': 'CALCULAR'}
+                    onClick ={()=>setResultados(calculoOMS)}
                     />
                 </span>
                 </div>
