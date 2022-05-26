@@ -40,7 +40,7 @@ function App() {
 
    // if(genero == "masculino"){
       let av = (11.3 * peso) + (16 * estatura) + 901
-      //resultados = av
+      resultados === av
       console.log(av)
       
     //}
@@ -53,7 +53,7 @@ function App() {
   }
 
   return (
-    <div className="text-slate-800">
+    <div className="">
       <Cabecera />
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 ">
         <Formulario
