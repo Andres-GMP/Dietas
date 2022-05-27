@@ -160,12 +160,6 @@ export const Formulario = ({setPacientes, pacientes, paciente,setPaciente, calcu
                     <label htmlFor="date">Genero </label>
                 <input type="date" name="date" id="date" className='px-2 block w-full rounded-md mb-10 text-gray-800' value={fecha} onChange={(e) => setFecha (e.target.value)} /> */}
                
-                <span>
-                    <input type="submit" id='btn1' className= "  "
-                    value = {paciente.id ? 'Editar paciente': ''}
-                    onClick ={()=>setResultados(calculoOMS)}
-                    />
-                </span>
                 </div>
                
 
