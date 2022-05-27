@@ -95,7 +95,7 @@ export const Formulario = ({setPacientes, pacientes, paciente,setPaciente, calcu
                             <label className='text-black ' htmlFor="">Peso en kg:</label>
                             <input type="text" id= 'peso' className='placeholder-gray-500 my-2 block w-full rounded-md bg-[#FFCC81] text-black p-2 ' placeholder='Peso' value={peso} onChange={(e) => setPeso(e.target.value)} />
                            
-                            <label className='text-black' htmlFor="nombrePaciente">Estatura en m:</label>
+                            <label className='text-black' htmlFor="nombrePaciente">Estatura en cm:</label>
                             <input type="text" id= 'estatura' className='placeholder-gray-500 my-2 block w-full rounded-md bg-[#FFCC81] text-black p-2' placeholder='Estatura' value={estatura} onChange={(e) => setEstatura(e.target.value)} />
                            
                             <label className='text-black' htmlFor="nombrePaciente">Edad:</label>
@@ -108,34 +108,34 @@ export const Formulario = ({setPacientes, pacientes, paciente,setPaciente, calcu
                     </div>
                     <div>
                         <span className='flex justify-center'>
-                        <h2 className=''>Calcular con factor de actividad</h2>
+                        <h2 className=''>Calcular con Factor de Actividad <span className='text-red-600'>Edad 18+</span></h2>
                         </span>
                         <div className='p-5 bg-[#FFB959] shadow-md rounded-xl mb-5 sm:mb-auto'>
 
                             <button className='flex bg-white text-black rounded-md text-md font-bold w-full border-2 hover:cursor-pointer pl-7 py-3 mt-1 mb-2 ' onClick={()=> {setFactor(1.2)
                             console.log(paciente.factor);}}>
-                                <img src={sedentario} alt="" className='w-10 h-10' /> <p className='my-auto'>Sedentario</p>
+                                <img src={sedentario} alt="" className='w-10 h-10' /> <p className='my-auto m-auto'>Sedentario</p>
                             </button>
                             
                             <button className='flex bg-white text-black rounded-md text-md font-bold w-full border-2 hover:cursor-pointer pl-7 py-3 mt-1 mb-2' onClick={()=> {setFactor(1.3)
                             console.log(paciente.factor);}}>
-                                <img src={ligero} alt="" className='w-10 h-10' /> <p className='my-auto'>Ligero</p>
+                                <img src={ligero} alt="" className='w-10 h-10' /> <p className='my-auto m-auto'>Ligero</p>
                             </button>
                             
                             <button className='flex bg-white text-black rounded-md text-md font-bold w-full border-2  hover:cursor-pointer pl-7 py-3 mt-1 mb-2' onClick={()=> {setFactor(1.5)
                             console.log(paciente.factor);}}>
-                                <img src={moderado} alt="" className='w-10 h-10' /> <p className='my-auto'>Moderado</p>
+                                <img src={moderado} alt="" className='w-10 h-10' /> <p className='my-auto m-auto'>Moderado</p>
                             </button>
                             
                             <button className='flex bg-white text-black rounded-md text-md font-bold w-full border-2 hover:cursor-pointer pl-7 py-3 mt-1 mb-2' onClick={()=> {setFactor(1.7)
                             console.log(paciente.factor);}}>
-                                <img src={activo} alt="" className='w-10 h-10' /> <p className='my-auto'>Activo</p>
+                                <img src={activo} alt="" className='w-10 h-10' /> <p className='my-auto m-auto'>Activo</p>
                             </button>
                             
                             <button className='flex bg-white text-black rounded-md text-md font-bold w-full border-2 hover:cursor-pointer pl-7 py-3 mt-1 mb-2' 
                             onClick={()=> {setFactor(1.9)
                             console.log(paciente.factor);}}>
-                                <img src={vigoroso} alt="" className='w-10 h-10' /> <p className='my-auto'>Vigoroso</p>
+                                <img src={vigoroso} alt="" className='w-10 h-10' /> <p className='my-auto m-auto'>Vigoroso</p>
                             </button>
                             <span className='p-2 flex justify-center rounded-md bg-[#FF990E]'>
                                 <label htmlFor=""

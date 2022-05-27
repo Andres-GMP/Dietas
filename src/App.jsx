@@ -32,7 +32,7 @@ function App() {
         actv = calc * factor
       }
       else{
-        actv = calc * 1
+        actv = 0
       }
     }
    else if(genero == "femenino"){
@@ -43,7 +43,7 @@ function App() {
         actv = calc * factor
       }
       else{
-        actv = calc * 1
+        actv = 0
         
       }
     }
@@ -51,7 +51,7 @@ function App() {
     setResultados({
       basal:calc.toFixed(2),
       fa:actv.toFixed(2),
-      total:actv.toFixed(2),
+      total:actv.toFixed(2)
     })
   }
 

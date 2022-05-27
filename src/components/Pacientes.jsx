@@ -20,7 +20,7 @@ const handleEliminar = () => {
         <p className='uppercase text-gray-800 font-bold'>Gasto basal: <span className='font-normal normal-case'>{resultados.basal}</span></p>
         <p className='uppercase text-gray-800 font-bold'>Factor de actividad: <span className='font-normal normal-case'>{resultados.fa}</span></p>
         <p className='uppercase text-gray-800 font-bold'>Total: <span className='font-normal normal-case'>{resultados.total}</span></p>
-        <img src={nutricion} alt="" className='w-80 h-80 m-auto' /> <p className='my-auto'></p>
+        <img src={nutricion} alt="" className=' w-52 h-52 sm:w-80 sm:h-80 m-auto' /> <p className='my-auto'></p>
         </div>
     </div>
   )
